@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-
+const Friend = require('./Friend');
 // Schema to create User model
 const userSchema = new Schema(
   {
@@ -11,12 +11,7 @@ const userSchema = new Schema(
         ref: 'Thought',
       },
     ],
-    friends: [
-        {
-          type: Schema.Types.ObjectId,
-          ref: 'Reaction',
-        },
-      ],
+    friends: [Friend],
   },
   {
     // Mongoose supports two Schema options to transform Objects after querying MongoDb: toJSON and toObject.
